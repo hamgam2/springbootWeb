@@ -1,0 +1,954 @@
+/* 寃��젙�깋蹂대떎 議곌툑 �쁾�� �쉶�깋  
+�씪諛섏쟻�씤 援ъ“�뿉 �빐�떦�븯�뒗 諛붾뵒�쁺�뿭�� 
+line-height : 1.4;�� 16�뵿���쓽 1.4諛곗쓽 以� �넂�씠瑜� 媛�吏�
+*/
+/* �늿�늻�쓽 MBC1961 援대┝泥� */
+@font-face {
+  font-family: 'MBC1961GulimM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* �늿�닕�뒳 �꽭醫낅퀝�썝泥� */
+@font-face {
+  font-family: 'SejonghospitalBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 5rem 5rem var(--color-light);
+
+
+  --logo-background: #F4F5EF;
+  --logo2-background: #D5ECF2;
+
+  --category-tab-color: #656565;
+
+}
+/* backgroundcolor: --logo-background
+    background-color: var(--color-background); */
+body {
+  height: 2000px;
+  color: #3333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: 'Nanum Gothic', sans-serif;
+
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.inner {
+  position: relative;
+  width: 1400px;
+  margin: 0 auto;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #3333;
+  border-radius: 5px;
+  color: #000;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  transition: .4s;
+}
+
+/* 諛섏쟾 */
+.btn.btn--reverse {
+  background-color: #333;
+  color: fff;
+}
+
+/* 諛섏쟾�맂 寃껋쓣 �썝�옒��濡� �룎�븘媛� */
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn.btn--greenwhite {
+  color: #1B9C85;
+  border-color: #166ed3;
+}
+
+.btn-btn--greenwhite:hover {
+  color: #F4F5EF;
+  background-color: #166ed3;
+}
+
+/* header */
+header {
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  /*�삤瑜몄そ 愿묎퀬 諛곗튂瑜� �쐞�빐 re ���떊 flexd濡� �꽕�젙*/
+  top: 0;
+  z-index: 9;
+}
+
+/* inner媛� 遺�紐⑥슂�냼 */
+header>.inner {
+  height: 120px;
+}
+
+/*遺�紐⑥슂�냼 湲곗��쑝濡� 諛곗튂*/
+header .logo {
+  height: 75px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 0;
+}
+
+/* header ���쓽 sub-menu / ul.menu / li / a / input  */
+header .sub-menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+  font-size: 20px;
+
+}
+
+
+/* menu �룿�듃�뒗 �떎瑜� �룿�듃濡� �쟻�슜�뻽�뒿�땲�떎.*/
+header .sub-menu ul.menu {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+header .sub-menu ul.menu li {}
+
+/* �듅�젙�븳 �럹�씠吏�濡� �씠�룞�븯湲� �쐞�빐�꽌 �겢由� 
+block�쁺�뿭�씠湲곕븣臾몄뿉 理쒕��븳 �뒛�뼱�궓*/
+header .sub-menu ul.menu li a {
+  font-size: 12px;
+  padding: 11px 16px;
+  display: block;
+  color: var(--category-tab-color);
+  text-decoration: none;
+}
+
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+/*媛��긽�꽑�깮�옄*/
+header .sub-menu ul.menu li::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+/*�쉶�썝媛��엯 �쇊履� 援щ텇�꽑 �뾾�븷踰꾨━湲�*/
+header .sub-menu ul.menu li:first-child:before {
+  display: none;
+}
+
+/*留덉슦�뒪 媛뽯떎��硫� 硫붾돱 �깋源� 寃��젙�깋�쑝濡� 蹂��븯湲�*/
+header .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+
+header .sub-menu .search {
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  background-color: #fff;
+  color: #363949;
+  font-size: 12px;
+  transition: width .4s;
+}
+
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #262d2c;
+}
+
+/*�룍蹂닿린 紐⑥뼇*/
+header .sub-menu .search .material-icons {
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+}
+
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+}
+
+header .main-menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+}
+
+header .main-menu .item {
+  color: #262d2c;
+}
+
+header .main-menu .item .item__name {
+  padding: 5px 20px 34px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+}
+
+/* 硫붿씤 硫붾돱�쓽 媛곴컖�쓽 �슚怨�! */
+header .main-menu .item:hover .item__name {
+  background-color: #539e87;
+  color: blanchedalmond;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+  height: 200px;
+}
+
+/* 而⑦뀗痢� 硫붾돱 �븞�뿉 �엳�뒗 ul �깭洹� (�옄�떇�꽑�깮�옄濡� �꽕�젙)*/
+
+/* hover 硫붾돱諛� */
+header .main-menu .item .item__contents .contents__menu>ul {
+  display: flex;
+  padding: 20px 3px;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li {
+  width: 220px;
+}
+
+/* hover �븞�쓽 �젣紐⑸뱾 */
+header .main-menu .item .item__contents .contents__menu>ul>li>h4 a {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #ffff;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #ffff;
+}
+
+
+header .main-menu .item .item__contents .contents__menu>ul>li>ul>li a {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+/* 링크가 걸리기 전까지 임의로 설정을 한다*/
+header .main-menu .item .item__contents .contents__menu>ul>li>ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+}
+
+/* hover content�쓽  css */
+header .main-menu .item .item__contents .contents__texture h4 {
+  padding: 3px 0 12px 0;
+  color: #539e87;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/*而⑦듃濡� �뵲�씪�떎�땲�뒗 愿묎퀬 留뚮뱾湲� (李멸퀬 badges�쓽 遺�紐⑤뒗 header�엫)*/
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+
+header .badges .badge {
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* �셿�쟾諛곌꼍 */
+.visual {
+  width: 1400px;
+  margin: auto;
+  margin-top: 120px;
+  background-color: #f0f9fb;
+  background-position: center;
+}
+
+.visual .inner {
+  height: 440px;
+  background-color: #ffffffc8;
+}
+
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+
+}
+
+.visual .title .btn {
+  position: absolute;
+  top: auto;
+  left: 34px;
+}
+
+/* por1�쓽 �씠誘몄� */
+/* 留덉�留� �빟 */
+.visual .pro1_image {
+  position: absolute;
+  top: 10px;
+  right: -900px;
+}
+
+.visual .pro1__image_text {
+  position: absolute;
+  color: #2c2a29;
+  font-family: SejonghospitalBold;
+  font-size: 22px;
+  font-weight: bold;
+  top: 1px;
+  right: -1300px;
+}
+
+/* �몢踰덉㎏ �빟 */
+
+
+.visual .pro2_image {
+  position: absolute;
+  left: 940px;
+
+}
+
+
+.visual .pro2__image_text {
+  position: absolute;
+  color: #2c2a29;
+  font-family: SejonghospitalBold;
+  font-size: 22px;
+  font-weight: bold;
+  right: -940px;
+}
+
+/* 泥ル쾲吏� �빟*/
+.visual .pro3_image {
+  position: absolute;
+  left: 190px;
+}
+
+.visual .pro3__image_text {
+  position: absolute;
+  color: #2c2a29;
+  font-family: SejonghospitalBold;
+  font-size: 22px;
+  font-weight: bold;
+  right: -550px;
+}
+
+.visual .fade-in {
+  top: 3px;
+  opacity: 0;
+}
+
+/* �몢踰덉㎏ �꽕鍮꾨컮 */
+
+.navigation-bar {
+  width: 1400px;
+  margin: 0 auto;
+  /* �닔�룊 以묒븰 �젙�젹 */
+  background: #f0f9fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 3px;
+  gap: 85px;
+
+}
+
+.navigation-bar a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+}
+
+.navigation-bar img {
+  width: 60px;
+  height: auto;
+}
+
+.navigation-bar span {
+  font-family: SejonghospitalBold;
+  font-size: 14px;
+  margin-top: 5px;
+  font-size: 0.78em;
+}
+
+/* 怨듭��궗�빆怨� �븞�궡�뿉 愿��븳 section */
+
+
+/*NOTICE*/
+/*NOTICE LINE*/
+.notice .notice-line {
+  width: 1400px;
+  margin: auto;
+  position: relative;
+}
+
+.notice .notice-line .bg-left {
+  width: 50%;
+  height: 100%;
+
+  background-color: #f0f9fb;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.notice .notice-line .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #f0f9fb;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notice .notice-line .inner {
+  height: 50px;
+  z-index: 1;
+  display: flex;
+}
+
+/* 怨듭��궗�빆 諛곌꼍 �뵒�옄�씤  */
+.notice .notice-line .inner__left {
+  width: 50%;
+  height: 100%;
+  background-color: #278b81;
+  display: flex;
+  align-items: center;
+}
+
+.notice .notice-line .inner__left h2 {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  margin-left: 30px;
+}
+
+.text1 {
+  margin-left: 30px;
+}
+
+.notice .notice-line .inner__left .swiper-container {
+  height: 62px;
+  flex-grow: 1;
+}
+
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+
+.notice .notice-line .inner__left .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  color: #fff;
+  font-size: 30px;
+}
+
+/*  */
+/* .notice .notice-line .inner__right {
+  color: #000000;
+  width: 50;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.notice .notice-line .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+} */
+
+/* �떊�빟�돱�뒪�쓽 �쟾泥� 諛곌꼍 */
+.notice .notice-line .inner__right {
+  width: 50%;
+  height: 100%;
+  background-color: #1B1B31;
+  display: flex;
+  align-items: center;
+}
+
+/* �떊�빟�돱�뒪 font �뒪���씪 */
+.notice .notice-line .inner__right h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .notice-line .inner__right .swiper-container {
+  height: 62px;
+  flex-grow: 1;
+}
+
+.notice .notice-line .inner__right .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.notice .notice-line .inner__right .swiper-slide a {
+  color: #fff;
+}
+
+.notice .notice-line .inner__right .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .notice-line .inner__right .notice-line__more .material-icons {
+  color: #fff;
+  font-size: 30px;
+}
+
+/*  */
+#title2 {
+  padding-left: 35px;
+}
+
+
+#player {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+/* �뒪���씠�띁 */
+
+.promotion {
+  width: 1400px;
+  margin: auto;
+  height: 400px;
+  background-color: #f4f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* �꼫鍮꾨�� 1400px濡� �꽕�젙�븯怨�, 遺덊븘�슂�븳 怨꾩궛 �젣嫄� */
+.promotion .swiper-container {
+  width: 1400px;
+  height: 300px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 200px;
+  position: relative;
+  top: 40px;
+  left: 50%;
+  margin-left: -700px;
+  overflow: hidden;
+
+}
+.promotion .swiper-slide {
+  width: calc(33.333% - 20px); /* 媛� �뒳�씪�씠�뱶�쓽 �꼫鍮꾨�� 而⑦뀒�씠�꼫�쓽 1/3濡� �꽕�젙, �뿬諛� 怨좊젮 */
+  float: left;
+  margin-right: 30px; /* �뒳�씪�씠�뱶 媛� 媛꾧꺽 */
+  
+}
+
+
+
+.promotion .swiper-slide:last-child {
+  margin-right: 0;
+}
+
+
+
+
+/* �쑀�뒠釉� */
+.youtube {
+  position: relative;
+  width: 1400px;
+  /* �쟾泥� �꽮�뀡�쓽 �꼫鍮꾨�� 利앷��떆耳� �깭洹� �쁺�뿭�쓣 �룷�븿�떆�궡 */
+  height: 500px;
+  background-color : #fafafa;
+  overflow: hidden;
+  display: flex;
+  /* �쑀�뒠釉� �쁺�긽怨� �깭洹� �쁺�뿭�쓣 媛�濡쒕줈 �굹���엳 諛곗뿴 */
+  margin: 0 auto;
+  /* �닔�룊 以묒븰 �젙�젹 */
+}
+
+.youtube__area {
+  flex: 0 0 900px;
+  /* �쑀�뒠釉� �쁺�긽�쓽 �꼫鍮꾨�� 怨좎젙 */
+  height: 100%;
+  position: relative;
+}
+
+#player {
+  width: 100%;
+  height: 100%;
+}
+
+.youtube__tags {
+  flex: 1;
+  /* �궓�� 怨듦컙�쓣 紐⑤몢 李⑥� */
+  padding: 20px;
+  /* �깭洹� 二쇰��뿉 �뿬諛깆쓣 異붽� */
+  display: flex;
+  flex-direction: column;
+  /* �깭洹몃�� �꽭濡쒕줈 �굹�뿴 */
+  justify-content: center;
+  /* 以묒븰 �젙�젹 */
+}
+
+.youtube__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 900px;
+  /* 而ㅻ쾭�쓽 �꼫鍮꾨�� �쑀�뒠釉� �쁺�긽 �꼫鍮꾩뿉 留욎땄 */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url("../images/video_cover_pattern.png");
+}
+
+.tag {
+  font-family: SejonghospitalBold;
+  display: inline-block;
+  background-color: #6da69d;
+  /* 諛앹� 諛곌꼍 */
+  color: white;
+  /* 湲��옄 �깋�긽 */
+  padding: 6px 15px;
+  /* �뙣�뵫�쓣 議곌툑 �뜑 �꼮�꼮�븯寃� */
+  border-radius: 4px;
+  /* �깭洹몄쓽 紐⑥꽌由щ�� �뜑�슧 �뫁湲�寃� */
+  margin: 9px;
+  /* �깭洹� �궗�씠�쓽 媛꾧꺽 */
+  font-size: 1.5em;
+  /* 湲��옄 �겕湲� 議곗젙 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* 洹몃┝�옄 異붽� */
+  transition: all 0.3s ease;
+  /* 遺��뱶�윭�슫 �긽�깭 蹂��솕瑜� �쐞�븳 �쟾�솚 �슚怨� */
+}
+
+.tag:hover {
+  background-color: #e75480;
+  /* 留덉슦�뒪 �샇踰꾩떆 諛곌꼍 �깋�긽 蹂�寃� */
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  /* �샇踰꾩떆 洹몃┝�옄 媛뺤“ */
+  transform: translateY(-2px);
+  /* �빟媛� �쐞濡� �뼚�삤瑜대뒗 �슚怨� */
+}
+
+/* ///�뀭   */
+.tag_title {
+  text-align: center;
+  font-family: SejonghospitalBold;
+  display: inline-block;
+  background-color: #2d2d38;
+  /* 諛앹� �븨�겕�깋 諛곌꼍 */
+  color: white;
+  /* 湲��옄 �깋�긽 */
+  padding: 7px 15px;
+  /* �뙣�뵫�쓣 議곌툑 �뜑 �꼮�꼮�븯寃� */
+  border-radius: 6px;
+  /* �깭洹몄쓽 紐⑥꽌由щ�� �뜑�슧 �뫁湲�寃� */
+  margin: 5px;
+  /* �깭洹� �궗�씠�쓽 媛꾧꺽 */
+  font-size: 1.5em;
+  /* 湲��옄 �겕湲� 議곗젙 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* 洹몃┝�옄 異붽� */
+  transition: all 0.3s ease;
+  /* 遺��뱶�윭�슫 �긽�깭 蹂��솕瑜� �쐞�븳 �쟾�솚 �슚怨� */
+}
+
+/* �뫖�꽣�쓽 �옉�뾽�쁺�뿭 */
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px 30px 20px 30px;
+  color: #2f2f2f;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  width: 1400px;
+  margin: auto;
+}
+
+.footer>* {
+  flex: 1 100%;
+}
+
+.footer__addr {
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+
+.footer__logo {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin-top: 1.3em;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: #999;
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  max-width: max-content;
+  background-color: rgb(33, 33, 33, 0.07);
+  border-radius: 100px;
+  color: #2f2f2f;
+  line-height: 0;
+  margin: 0.6em 0;
+  font-size: 1rem;
+  padding: 0 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer__nav>* {
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: #999;
+}
+
+.nav__ul--extra {
+  column-count: 2;
+  column-gap: 1.25em;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: #999;
+}
+
+.legal__links {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  color: #2f2f2f;
+}
+
+@media screen and (width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav>* {
+    flex: 1;
+  }
+
+  .nav__item--extra {
+    flex-grow: 2;
+  }
+
+  .footer__addr {
+    flex: 1 0px;
+  }
+
+  .footer__nav {
+    flex: 2 0px;
+  }
+}
+
+/* 怨좎젙�씠誘몄� */
+.season-product {
+  background-image: url("../images/season_product_bg.jpg");
+  width: 1400px;
+  margin: auto;
+
+}
+.season-product .inner {
+  height: 400px;
+  position: relative;
+}
+
+/* 遺�紐⑥슂�냼瑜� inner濡� �꽕�젙 */
+.season-product .text-group {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+  text-shadow: 2px 2px 2px #d7d3d3; /* �뀓�뒪�듃�뿉 洹몃┝�옄 �슚怨� 異붽� */
+  
+}
+.season-product .text-group .title {
+  font-family: MBC1961GulimM;
+  font-weight: 500;
+  color: #333;
+  font-size: 35px;
+  margin-bottom: 10px;
+  color: #403b3e;
+}
+
+.season-product .text-group .description{
+  font-family: Nanum 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  color: #4e4d4d;
+  font-size: 25px;
+  margin-bottom: 10px;
+  
+}
+
+.season-product .text-group .more {
+  font-family: Nanum 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  color: #4e4d4d;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.floating2 {
+  position: absolute;
+  top: 99px;
+  left: 370px; /* �씠誘몄��쓽 �쇊履쎌뿉�꽌遺��꽣�쓽 嫄곕━ *//
+}
+
+.floating3 {
+  position: absolute;
+  top: 0;
+}
+
+.floating2, .floating3 {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+.floating2:hover, .floating3:hover {
+  transform: scale(1.1); /* Slightly increase the size */
+  cursor: pointer; /* Change cursor to indicate clickable */
+}

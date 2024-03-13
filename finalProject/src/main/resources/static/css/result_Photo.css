@@ -1,0 +1,187 @@
+:root {
+
+
+    --color-primary: #D5ECF2; 
+    --color-nav: #F4F5EF; 
+    --color-notice: #1B1B31; 
+    --color-warning: #95C8D4; 
+    --color-white: #FCFEFE; 
+    --color-sub-blue: #0577BD; 
+    --color-green: #2BA69A; 
+
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 50px;
+}
+.container{
+    margin-top: 780px;
+
+}
+.container .container2{
+    display: block;
+    box-sizing: border-box;
+    width: 1400px; 
+    height: 164px;
+    margin: 10px;
+}
+/*검색창*/
+.input-group{
+    height: 50px;
+}
+
+.search-box-container{
+    align-content: center;
+    margin-top: 30px;
+    width: 1200px;
+}
+
+.search-box-container .btn {
+    background-color: #2BA69A; 
+    border-color: #2BA69A;
+    color: whitesmoke;
+  
+}
+.search-box-container:hover {
+    background-color: #2BA69A; 
+    border-radius: 10px;
+    border-color: #2BA69A;
+    color: whitesmoke;
+}
+
+.search-box-container .form-control {
+    border-color: #2BA69A; 
+}
+
+
+.view-button{
+ text-align: right;
+ margin-top: 30px;
+ margin-bottom: 30px;
+ 
+}
+
+/* 의약품 버튼 색상 변경 */
+.view-button .btn-secondary {
+    background-color:#95C8D4; 
+    border-color: #ccc; 
+    color: white; 
+}
+/* 의약품 버튼 호버 효과 */
+.view-button .btn-secondary:hover {
+    background-color: #2BA69A; 
+    border-color: #2BA69A; 
+    color: white;
+}
+
+
+
+/* 사진형, 목록형 버튼 색상 변경 */
+.view-button .btn-outline-primary {
+    border-color: #2BA69A; 
+    color: #2BA69A; 
+}
+
+
+/* 사진형, 목록형 버튼 호버 효과 */
+.view-button .btn-outline-primary:hover {
+    border-color: #2BA69A; 
+    background-color:#D5ECF2;
+    color: #2BA69A;
+}
+
+
+  /*사진형*/
+  /*리스트 시작*/
+  .list-container {
+    width: 1400px;
+    height: auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.list-item {
+    flex: 0 0 23%;
+    margin:10px;
+    border:1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+.box-classify{
+margin: 10px;
+padding:5px;
+}
+.classify_A{
+    border: 2px solid green;
+    border-radius: 10px;
+    color: green;
+    padding: 5px;
+}
+.classify_B{
+    border: 2px solid red;
+    border-radius: 10px;
+    color: red;
+    padding: 5px;
+}
+.classify_C{
+    border: 2px solid violet;
+    border-radius: 10px;
+    color: violet;
+    padding: 5px;
+}
+.classify_D{
+    border: 2px solid blue;
+    border-radius: 10px;
+    color: blue;
+    padding: 5px;
+}
+
+
+.list-item img {
+    padding: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 200px;
+}
+
+.name{
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.tag-container{
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;;
+  
+}
+.tag{
+
+    border:2px solid #0577BD;
+    border-radius: 5px;
+    color:#0577BD;
+    padding: 5px;
+
+}
+
+
+
+
+/*바닥 숫자*/
+.Page-number {
+    margin-top: 30px;
+    margin-left: 0%;
+}
+
+
+.Page-number .pagination .page-link {
+    color: #2BA69A;
+}

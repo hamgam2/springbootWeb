@@ -1,0 +1,195 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.signup-title {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.7rem;
+    color: #333;
+    margin-top: 140px;
+  }
+
+/* 회원가입 창 */
+.login-container {
+    width: 40%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    display: flex; /* Flexbox 모델 적용 */
+    flex-direction: column; /* 자식 요소들을 세로로 정렬 */
+    align-items: center; /* 세로 중심선을 기준으로 중앙 정렬 */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  
+}
+
+.login-form label {
+    color: rgb(62, 60, 60);
+    margin-bottom: 5px;
+}
+
+/* input 설정창 */
+.login-form input {
+    width: 480px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+}
+
+/* 회원가입 submit 창 */
+.login-form button {
+    padding: 10px;
+    background-color: #1f271f;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+/* 회원가입 submit창의 배경색상 */
+.login-form button:hover {
+    background-color: #292e31;
+    padding: 10px;
+}
+
+.login-link {
+    display: block;
+    text-align: right;
+    margin-top: 3px;
+    color: #96bcf5;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* 버튼효과 */
+.btn {
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #3333;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    transition: .4s;
+  }
+  /* 회원가입창의 약플 로고 컨테이너 */
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* 가로 방향으로 중앙 정렬 */
+    width: 100%; /* 이 컨테이너의 너비를 부모의 100%로 설정 */
+}
+
+.button-container {
+    text-align: right;
+    /* 컨테이너 내부의 내용을 중앙에 정렬 */
+    margin-top: 10px;
+    /* 컨테이너 상단 여백 */
+    width: 100%;
+    /* 컨테이너의 너비를 최대로 설정 */
+  }
+  
+  /*버튼*/
+  
+.continue-button {
+
+    width: 100%;
+    /* 버튼의 너비를 조정 */
+    background-color: #1B1B31;
+    /* 버튼의 배경 색상 */
+    color: white;
+    /* 버튼의 글자 색상 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    border: none;
+    /* 테두리 없음 */
+    border-radius: 5px;
+    /* 버튼의 모서리를 둥글게 */
+    cursor: pointer;
+    /* 마우스 오버 시 커서 변경 */
+    font-size: 1rem;
+    /* 글자 크기 */
+    margin-top: 20px;
+    /* 상단 여백 */
+    transition: background-color 0.3s;
+    /* 배경 색상 변경 시 애니메이션 효과 */
+    width: auto;
+    /* 버튼 너비를 자동으로 설정하여 내용에 맞게 조정 */
+    padding: 15px 50px;
+    /* 버튼의 상하 패딩 15px, 좌우 패딩 30px */
+    /* 나머지 스타일은 제공된 CSS 코드를 그대로 사용 */
+  
+  }
+  
+  .continue-button:hover {
+    background-color: #0056b3;
+    /* 호버 시 배경 색상 변경 */
+  }
+  
+  .button-container {
+    text-align: center;
+    /* 컨테이너 내부의 내용을 중앙에 정렬 */
+    margin-top: 20px;
+    /* 컨테이너 상단 여백 */
+    width: 100%;
+    /* 컨테이너의 너비를 최대로 설정 */
+  }
+  
+  .login-form input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+
+/* 입력 필드 호버 효과 */
+.login-form input:hover {
+    border-color: #999;
+}
+
+.continue-button:hover {
+    background-color: #357ABD; /* 색상을 좀 더 밝은 색으로 변경 */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-container {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 추가적인 스타일 조정 */
+.login-form input, .continue-button {
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--인코딩방식 변경-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!--푸터 작업 영역의 시작 -->
+
+	<th:block th:fragment="footerLayout">
+	<link href=/css/footer.css rel="stylesheet">
+		<footer class="footer">
+			<div class="footer__addr">
+				<img src="./favicon.ico">
+
+				<h2>Project</h2>
+
+				<address>
+					서울특별시 역삼동 KH정보교육원의 약플조<br> <a class="footer__btn"
+						href="mailto:example@gmail.com">Email Us</a>
+				</address>
+			</div>
+
+			<ul class="footer__nav">
+				<li class="nav__item">
+					<h2 class="nav__title">개인정보처리방침</h2>
+
+					<ul class="nav__ul">
+						<li><a href="#">고객 개인정보방침</a></li>
+
+						<li><a href="#">관리자 개인정보방침</a></li>
+
+						<li><a href="#">Website 약관방침</a></li>
+					</ul>
+				</li>
+
+				<li class="nav__item">
+					<h2 class="nav__title">고객센터</h2>
+
+					<ul class="nav__ul">
+						<li><a href="#">배송문의</a></li>
+
+						<li><a href="#">교환/환불</a></li>
+
+						<li><a href="#">상담사연결</a></li>
+					</ul>
+				</li>
+
+				<li class="nav__item">
+					<h2 class="nav__title">관리자 고객센터</h2>
+
+					<ul class="nav__ul">
+						<li><a href="#"> 카테고리 1 </a></li>
+
+						<li><a href="#"> 카테고리 2 </a></li>
+
+						<li><a href="#"> 카테고리 3 </a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="legal">
+				<p>&copy; 2024 약+,</p>
+				<p>더욱 더 안심하고 신뢰할 수 있는 서비스를 제공하기 위해서 최선을 다하고 있습니다.</p>
+			</div>
+		</footer>
+	</th:block>
+
+
+</html>

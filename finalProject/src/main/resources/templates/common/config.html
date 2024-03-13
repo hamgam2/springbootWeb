@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<title>header footer css 등등을 설정해 놓은 html 파일입니다</title>
+<th:block th:fragment="configFragment">
+	<!-- css 관련 -->
+	<link th:href="@{/css/header.css}" rel="stylesheet">
+	<link th:href="@{/css/footer.css}" rel="stylesheet">
+
+	<!-- 외부 css -->
+	<!--오픈그래프 소스-->
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="yakpul" />
+	<meta property="og:site_title" content="Medical yakpul Korea" />
+	<meta property="og:site_description" content="약+ 당신의 증상을 호전시켜주는 진통제" />
+	<meta property="og:site_image" content="./favicon.png" />
+	<meta property="og:url" content="http://Medical.yakpul" />
+
+	<!--트위터 카드(Twitter Cards)-->
+	<meta proerty="twitter:card" content="Hello" />
+	<meta proerty="twitter:site" content="yakpul" />
+	<meta proerty="twitter:title" content="Medical yakpul Korea" />
+	<meta proerty="twitter:description" content="약+ 당신의 증상을 호전시켜주는 진통제" />
+	<meta proerty="twitter:image" content="./css/yakpul.seo.png" />
+	<meta proerty="twitter:url" content="http://Medical.yakpul" />
+	<!--탭 아이콘 연결 파비곤 연결-->
+	<link rel="icon" href="./favicon.png" />
+	<!--reset 라이브러리 연결 -->
+	<link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
+		rel="stylesheet" />
+	<!--구글 아이콘 연결-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
+	<link
+		href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+		rel="stylesheet">
+
+	<!--구글폰트의 나눔고딕폰트-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<script
+		src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js
+    "></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+		integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- 스와이퍼 라이브러리 추가-->
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<script
+		src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+	<!-- script 관련 -->
+
+</th:block>
+
+</html>

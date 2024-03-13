@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+
+<script
+	th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js}"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
+<script th:src="@{/script.js}" defer="defer" type="text/javascript"></script>
+
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+<div th:include="common/header :: headerContent"></div>
+</header>
+	<!--photo-->
+	<div class="container mt-3">
+		<div class="row ">
+			<div class="col-md-2 ps-0">
+				<div class="card-body info">
+					<img src="/img/product5.png"
+						style="width: 130px; border-radius: 100%"
+						th:src="@{/img/product5.png}"> <br>
+					<h2>이해미</h2>
+					<p>햄갬</p>
+					<button type="button" class="btn btn-primary btn-sm btn">내정보관리</button>
+					<hr>
+					<div class="infocontainer">
+						<div class="circle">
+							<p>여</p>
+						</div>
+						<div class="circle">
+							<p>30세</p>
+						</div>
+						<div class="circle">
+							<p>청주시</p>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col">
+							<div
+								class="d-flex justify-content-center align-items-center styled-div">
+								<div style="text-align: center;">
+									<img class="caimg" th:src="@{/img/내약.PNG}"> <span
+										class="big-text" data-text="내약" th:text="${wishcount + '건'}"></span>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="col">
+							<div
+								class="d-flex justify-content-center align-items-center styled-div">
+								<div style="text-align: center;">
+									<img class="caimg" th:src="@{/img/구급상자.PNG}"> <span
+										class="big-text" data-text="구급상자" th:text="${kitcount + '건'}"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10 mb-0">
+				<div class="row">
+					<div class="title">
+						<h2 class="maintitle">나의 보관함</h2>
+						<hr>
+					</div>
+					<div class="col-md-12 ps-2 mb-2">
+						<div class="card white-box-ver1">
+							<div class="card-body">
+								<div
+									class="d-flex justify-content-between align-items-center mb-3">
+									<h5 class="card-title fw-bold">카테고리</h5>
+									<button type="button" class="btn btn-primary btn-sm"
+										onclick="openModal()">+약품추가</button>
+								</div>
+								<div id="buttonContainer1">
+									<button th:each="buttonlist : ${buttonlist}" type="button" th:onclick="deleteCategory(this)"
+										class="btn btn-success">
+										<img src="./img/cataimg.png" width="50px" /> <br>
+										<span id="cateNo"  th:text="${buttonlist.no}" style="display: none;"></span>
+										<span  id="cateName" th:text="${buttonlist.categoryName}"></span><br> 
+										<span class="delete-text">삭제</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 내약품 리스트 -->
+					<div class="col-md-12 ps-2 mb-2">
+						<div class="card white-box-ver1">
+							<div class="card-body">
+								<div
+									class="d-flex justify-content-between align-items-center mb-3">
+									<h2 class="card-title fw-bold">내약품리스트</h2>
+									<button type="button" class="btn btn-primary btn-sm"
+										th:onclick="openModal2()">+약품추가</button>
+								</div>
+								<div id="myModalContainer2"></div>
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col" style="display: none;">NO.</th>
+											<th scope="col">사진</th>
+											<th scope="col">품명</th>
+											<th scope="col">수량</th>
+											<th scope="col">효과.효능</th>
+											<th scope="col">사용기한</th>
+											<th scope="col">소요기간</th>
+											<th scope="col">삭제</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="wishlist : ${wishlist}">
+											<th scope="row" th:text="${wishlist.no}"
+												style="width: 60px; display: none;"></th>
+											<td style="width: 170px;"><img
+												th:src="${wishlist.memImg}"
+												style="width: 100px; height: 80px" /></td>
+											<td th:text="${wishlist.wishName}" style="width: 150px;"></td>
+											<td th:text="${wishlist.count}" style="width: 60px;"></td>
+											<td th:text="${wishlist.wishFun}" style="width: 300px;"></td>
+											<td th:text="${wishlist.endDate}" style="width: 100px;"></td>
+											<td><span th:if="${wishlist.remainDate > 0}"
+												th:text="${wishlist.remainDate + '일 남았습니다.'}"></span> <span
+												th:if="${wishlist.remainDate == 0}" th:text="'금일까지입니다.'"></span>
+												<span th:if="${wishlist.remainDate < 0}"
+												th:text="${(0 - wishlist.remainDate) + '일 지났습니다.'}"
+												style="color: red; font-weight: bold;"></span></td>
+											<td><button type="button" class="btn btn-danger"
+													th:onclick="deleteWish(this)">-</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- 구급약품 리스트 -->
+					<div class="col-md-12 ps-2 mb-2">
+						<div class="card white-box-ver1">
+							<div class="card-body">
+								<div
+									class="d-flex justify-content-between align-items-center mb-3">
+									<h5 class="card-title fw-bold">구급상자</h5>
+									<div>
+										<button type="button" class="btn btn-primary btn-sm"
+											th:onclick="openModal3()">+약품추가</button>
+										<button type="button" class="btn btn-info btn-sm"
+											th:onclick="openModal5()">+구매하기</button>
+									</div>
+								</div>
+								<div id="myModalContainer3"></div>
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col" style="display: none;">NO.</th>
+											<th scope="col">품명</th>
+											<th scope="col">효과.효능</th>
+											<th scope="col">포장단위</th>
+											<th scope="col">소요기간</th>
+											<th scope="col">삭제</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="kitlist : ${kitlist}">
+											<th scope="row" th:text="${kitlist.no}"
+												style="display: none;"></th>
+											<td th:text="${kitlist.kitName}"></td>
+											<td th:text="${kitlist.division}"></td>
+											<td th:text="${kitlist.packaging}"></td>
+											<td th:text="${kitlist.endDate}"></td>
+											<td><button type="button" class="btn btn-danger"
+													onclick="deleteKit(this)">-</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 ps-2 mb-2">
+						<div class="card white-box-ver1">
+							<div class="row row-cols-1 row-cols-md-3 g-4 ">
+								<div id="carouselExampleDark"
+									class="carousel carousel-dark slide"
+									style="height: 520px; width: 100%">
+									<div class="carousel-indicators">
+										<button type="button" data-bs-target="#carouselExampleDark"
+											data-bs-slide-to="0" class="active" aria-current="true"
+											aria-label="Slide 1"></button>
+										<button type="button" data-bs-target="#carouselExampleDark"
+											data-bs-slide-to="1" aria-label="Slide 2"></button>
+										<button type="button" data-bs-target="#carouselExampleDark"
+											data-bs-slide-to="2" aria-label="Slide 3"></button>
+											<button type="button" data-bs-target="#carouselExampleDark"
+											data-bs-slide-to="3" aria-label="Slide 4"></button>
+									</div>
+									<div class="carousel-inner" style="width: 100%;">
+										<div id="#눈건강" class="carousel-item active" data-bs-interval="10000">
+										<h5 class="card-title fw-bold">나의 추천 리스트</h5>
+										<br>
+											<div class="row justify-content-center">
+												<div class="col-auto">
+													<div class="card" style="width: 17rem;">
+														<img
+															src="https://newt365.co.kr/web/product/big/202312/79b9e4d7896cc291624816a2f9883978.png"
+															class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">뉴티365 뉴티엠</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">상품 담기</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 17rem;">
+														<img
+															src="https://newt365.co.kr/web/product/big/202312/ce68481af80eb44c914d6bb6edf67bee.png"
+															class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">뉴티365 오컷 플러스</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">상품 담기</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 17rem;">
+														<img
+															src="https://newt365.co.kr/web/product/big/202312/6a3cc50cc670053a4605842f2a31a7cf.png"
+															class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">뉴티365 뉴티락</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">상품 담기</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="#장건강"  class="carousel-item" data-bs-interval="2000">
+											<div class="row justify-content-center">
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="#피로회복"  class="carousel-item">
+											<div class="row justify-content-center">
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="#면역기능" class="carousel-item">
+											<div class="row justify-content-center">
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-auto">
+													<div class="card" style="width: 13rem;">
+														<img src="..." class="card-img-top" alt="...">
+														<div class="card-body">
+															<h5 class="card-title">Card title</h5>
+															<p class="card-text"></p>
+															<a href="#" class="btn btn-primary">Go somewhere</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<button class="carousel-control-prev" type="button"
+										data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button"
+										data-bs-target="#carouselExampleDark" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	<div th:include="common/footer :: footerLayout"></div>
+	</div>
+	<th:block th:replace="/add::addLayout"></th:block>
+</body>
+</html>

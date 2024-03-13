@@ -1,0 +1,157 @@
+:root {
+
+
+    --color-primary: #D5ECF2;
+    --color-nav: #F4F5EF;
+    --color-notice: #1B1B31;
+    --color-warning: #95C8D4;
+    --color-white: #FCFEFE;
+    --color-sub-blue: #0577BD;
+    --color-green: #2BA69A;
+
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 50px;
+}
+
+.container {
+
+    margin-top: 500px;
+}
+
+.container .container2 {
+
+    display: block;
+    box-sizing: border-box;
+    width: 1400px;
+    height: auto;
+}
+
+/*검색창*/
+.input-group {
+    height: 50px;
+  
+}
+
+.search-box-container {
+    align-content: center;
+    margin-top: 30px;
+    width: 1200px;
+}
+
+.search-box-container .btn {
+    background-color: #2BA69A;
+    border-color: #2BA69A;
+    color: whitesmoke;
+
+}
+
+.search-box-container:hover {
+    background-color: #2BA69A;
+    border-radius: 10px;
+    border-color: #2BA69A;
+    color: whitesmoke;
+}
+
+.search-box-container .form-control {
+    border-color: #2BA69A;
+}
+
+
+.view-button {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+
+}
+
+/* 의약품 버튼 색상 변경 */
+.view-button .btn-secondary {
+    background-color: #95C8D4;
+    border-color: #ccc;
+    color: white;
+}
+
+/* 의약품 버튼 호버 효과 */
+.view-button .btn-secondary:hover {
+    background-color: #2BA69A;
+    border-color: #2BA69A;
+    color: white;
+}
+
+
+
+/* 사진형, 목록형 버튼 색상 변경 */
+.view-button .btn-outline-primary {
+    border-color: #2BA69A;
+    color: #2BA69A;
+}
+
+
+/* 사진형, 목록형 버튼 호버 효과 */
+.view-button .btn-outline-primary:hover {
+    border-color: #2BA69A;
+    background-color: #D5ECF2;
+    color: #2BA69A;
+}
+
+/*목차형 List시작*/
+
+#typeTable {
+
+    text-align: center;
+    border-collapse: collapse;
+    border-top: 3px solid #ccc;
+    width: 1400px;
+
+}
+
+.typeTable th {
+    border-bottom: 3px solid #ccc;
+    background-color: #D5ECF2;
+    padding: 8px;
+    height: 50px;
+    padding-top: 15px;
+    text-align: center;
+
+}
+
+.typeTable td {
+
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.typeTable td:last-child {
+    border-right: none;
+}
+
+.table-img {
+    padding: 5px;
+    border-radius: 10px;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*바닥 숫자*/
+.Page-number {
+    margin-top: 30px;
+margin-left: 50%;
+}
+
+.Page-number .pagination .page-link {
+    color: #2BA69A;
+}

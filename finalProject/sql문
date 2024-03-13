@@ -1,0 +1,31 @@
+create database finalProject;
+use finalProject;
+
+drop table KIT;
+select *from WISH;
+
+insert into WISH values('1','1','2024-03-07','null','1','2024-03-05','해열제','타이레놀');
+INSERT INTO Wish (mem_cat, mem_num, wish_name, count, wish_fun, end_date, modify_date) 
+VALUES ('some_category', 123456789, 'some_wish', 5, 'some_function', '2024-03-05', '2024-03-05');
+
+select *from KIT;
+
+-- 1번 INSERT
+INSERT INTO KIT (MEM_CAT, MEM_NUM, DIVISION, KIT_NAME, PACKAGING, KIT_FUN, END_DATE, MODIFY_DATE) 
+VALUES ('category1', 123456789, 'division1', 'wishName1', 'packaging1', 'function1', '2024-03-05', '2024-03-05');
+
+-- 2번 INSERT
+INSERT INTO KIT (MEM_CAT, MEM_NUM, DIVISION, KIT_NAME, PACKAGING, KIT_FUN, END_DATE, MODIFY_DATE) 
+VALUES ('category2', 987654321, 'division2', 'wishName2', 'packaging2', 'function2', '2024-03-06', '2024-03-06');
+
+-- 3번 INSERT
+INSERT INTO KIT (MEM_CAT, MEM_NUM, DIVISION, KIT_NAME, PACKAGING, KIT_FUN, END_DATE, MODIFY_DATE) 
+VALUES ('category3', 123456789, 'division3', 'wishName3', 'packaging3', 'function3', '2024-03-07', '2024-03-07');
+
+-- 4번 INSERT
+INSERT INTO KIT (MEM_CAT, MEM_NUM, DIVISION, KIT_NAME, PACKAGING, KIT_FUN, END_DATE, MODIFY_DATE) 
+VALUES ('category1', 987654321, 'division2', 'wishName4', 'packaging2', 'function4', '2024-03-08', '2024-03-08');
+
+-- 5번 INSERT
+INSERT INTO KIT (MEM_CAT, MEM_NUM, DIVISION, KIT_NAME, PACKAGING, KIT_FUN, END_DATE, MODIFY_DATE) 
+VALUES ('category2', 123456789, 'division3', 'wishName5', 'packaging3', 'function5', '2024-03-09', '2024-03-09');

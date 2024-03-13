@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/style.css}">
+<script
+	th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js}"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
+<script th:src="@{/script.js}" defer="defer" type="text/javascript"></script>
+</head>
+<th:block th:fragment="addLayout">
+	<body>
+		<div id="myModal" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">건강 키워드</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<p>선택항목</p>
+							<div id="buttonContainer">
+								<!-- 추가될 요소들 -->
+							</div>
+						</div>
+						<p>카테고리 추가</p>
+						<div class="row">
+							<div class="col-md-4 _category">
+								<button id="#눈건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#눈건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#장건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#장건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#피로회복" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#피로회복</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#면역기능" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#면역기능</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#피부건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#피부건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#체지방" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#체지방</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#노화예방" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#노화예방</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#혈액순환" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#혈액순환</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#소화건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#소화건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#탈모" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#탈모</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#뼈건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#뼈건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#혈압" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#혈압</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#갱년기" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#갱년기</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#치아건강" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#치아건강</button>
+							</div>
+							<div class="col-md-4 _category">
+								<button id="#임산부" type="button"
+									class="btn btn-warning btn-block _category"
+									onclick="showButtonById(this.textContent)">#임산부</button>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary"
+							onclick="copyButtons()">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal2" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div
+				class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">약품추가</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="medilistform">
+							<p>약품리스트</p>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="게시글을 검색하세요"
+									id="searchModelInput2">
+								<!-- 검색 버튼 -->
+								<div class="input-group-append">
+									<button class="btn btn-primary" id="searchModal" type="button"
+										onclick="searchModelInput()">검색</button>
+								</div>
+							</div>
+						</form>
+						<table id="modalContent2" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th scope="col">사진</th>
+									<th scope="col">품명</th>
+									<th scope="col">효과</th>
+									<th scope="col">담기</th>
+								</tr>
+							</thead>
+							<tbody id="mediList">
+							</tbody>
+						</table>
+						<button type="button" class="btn btn-primary"
+							onclick="openModal6()">투약 일정</button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="Update()">저장</button>
+						<button type="button" class="btn btn-secondary" 	data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 구급상자 담기모달-->
+		<div id="myModal3" class="modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">구급상자</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="search-section">
+							<h6 class="modal-title">구급의약품 검색</h6>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="itemName">
+								<button type="button" class="btn btn-primary" onclick="search()">검색</button>
+							</div>
+						</div>
+						<div class="recommendation-section">
+							<h6 class="modal-title">추천리스트</h6>
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th scope="col">기능</th>
+										<th scope="col">품명</th>
+										<th scope="col">포장단위</th>
+										<th scope="col">담기</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="5">해열진통제</td>
+										<td>어린이용타이레놀정80mg</td>
+										<td>10정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">해열진통제</td>
+										<td>타이레놀정160mg</td>
+										<td>8정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">해열진통제</td>
+										<td>타이레놀정500mg</td>
+										<td>8정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">해열진통제</td>
+										<td>어린이타이레놀현탁액</td>
+										<td>1병(100ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">해열진통제</td>
+										<td>어린이부루펜시럽</td>
+										<td>1병(80ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="2">감기약</td>
+										<td>판콜에이내복액</td>
+										<td>3병(병당 30ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">감기약</td>
+										<td>판피린티정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="4">소화제</td>
+										<td>베아제정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">소화제</td>
+										<td>닥터베아제정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">소화제</td>
+										<td>훼스탈골드정</td>
+										<td>6정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">소화제</td>
+										<td>훼스탈플러스정</td>
+										<td>6정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="2">파스</td>
+										<td>신신파스아렉스</td>
+										<td>4매</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none">파스</td>
+										<td>제일쿨파프</td>
+										<td>4매</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addkitList(this)">+</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<p>
+								※ 안전상비의약품 지정에 관한 고시<br>(보건복지부고시 제2016-156호)
+							</p>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save
+							changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 구급약품 검색창-->
+		<div id="myModal4" class="modal" tabindex="-1">
+			<div class="modal-dialog ">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">새로운 아이템 추가</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<p>약품리스트</p>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="itemName">
+								<button type="button" class="btn btn-primary">검색</button>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary">저장</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 구급상자 구매모달-->
+		<div id="myModal5" class="modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">구급 상자 약품 구매하기</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="recommendation-section">
+							<h6 class="modal-title">추천리스트</h6>
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">품명</th>
+										<th scope="col">포장단위</th>
+										<th scope="col">담기</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="5" data-category="해열진통제">해열진통제</td>
+										<td>어린이용타이레놀정80mg</td>
+										<td>10정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="어린이용타이레놀정80mg" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="해열진통제">해열진통제</td>
+										<td>타이레놀정160mg</td>
+										<td>8정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="타이레놀정160mg" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="해열진통제">해열진통제</td>
+										<td>타이레놀정500mg</td>
+										<td>8정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="타이레놀정500mg" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="해열진통제">해열진통제</td>
+										<td>어린이타이레놀현탁액</td>
+										<td>1병(100ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="어린이타이레놀현탁액" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="해열진통제">해열진통제</td>
+										<td>어린이부루펜시럽</td>
+										<td>1병(80ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="어린이부루펜시럽" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="3" data-category="감기약">감기약</td>
+										<td>판콜에이내복액</td>
+										<td>3병(병당 30ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="감기약">감기약</td>
+										<td>판콜에이내복액</td>
+										<td>3병(병당 30ml)</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="판콜에이내복액" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="감기약">감기약</td>
+										<td>판피린티정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="판피린티정" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="4" data-category="소화제">소화제</td>
+										<td>베아제정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="베아제정" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="소화제">소화제</td>
+										<td>닥터베아제정</td>
+										<td>3정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="닥터베아제정" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="소화제">소화제</td>
+										<td>훼스탈골드정</td>
+										<td>6정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="훼스탈골드정" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="소화제">소화제</td>
+										<td>훼스탈플러스정</td>
+										<td>6정</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="훼스탈플러스정" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td rowspan="2" data-category="파스">파스</td>
+										<td>신신파스아렉스</td>
+										<td>4매</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="신신파스아렉스" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td style="display: none;" data-category="파스">파스</td>
+										<td>제일쿨파프</td>
+										<td>4매</td>
+										<td>
+											<button type="button" class="btn btn-primary"
+												data-item="제일쿨파프" onclick="addToList(this)">+</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<p>
+								※ 안전상비의약품 지정에 관한 고시<br>(보건복지부고시 제2016-156호)
+							</p>
+							<h7 class="modal-title">구매 리스트</h7>
+							<table id="compositionTable"
+								class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">품명</th>
+										<th scope="col">포장단위</th>
+										<th scope="col">담기</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<p>
+								더 많은 상품을 구매하기 원하시면 <a th:href="@{'#'}">바로가기</a> 눌러주세요.
+							</p>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">구매하기</button>
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 기간 설정 모달 -->
+		<div id="myModal6" class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">등록하기</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<table class="table">
+								<tr>
+									<td>사용기한</td>
+									<td><input type="date" id="myDate" name="myDate"></td>
+								</tr>
+								<tr>
+									<td>수량</td>
+									<td><input type="number" id="quantity" value="1" min="1"></td>
+								</tr>
+							</table>
+							<p>
+								※ 사용기간설명<br> 개봉전 기한 - 1~2년 이상<br> 개봉후 기한 - 알약 1년/시럽
+								1개월/연고 6개월/안약 1개월 <br>(미국 약전표 USP)
+							</p>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="select()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</th:block>
+</html>

@@ -1,0 +1,341 @@
+:root {
+     --color-primary: #D5ECF2; 
+     /* <!--전체적인 하늘색--!> */
+    --color-nav: #F4F5EF;
+     /* <!-- 첫번째 nav의 색깔--!> */
+    --color-notice: #1B1B31;
+     /* <!--공지사항에 들어갈 진한 남색--!> */
+    --color-warning: #95C8D4; 
+    /* <!-- 서브 하늘색--!> */
+    --color-white: #FCFEFE; 
+    /* <!--상품진열에 올라간 흰색--!> */
+    --color-sub-blue: #0577BD; 
+    /* <1--서브 파란색--!> */
+    --color-green: #2BA69A;
+     /* <!--포인트 그린색(네비바에도 적용중)--!> */ 
+
+}
+.main_container_header {
+   max-width: 87.5rem;
+  
+    margin: 0 auto;
+
+
+}
+
+.header_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin-top: 150px;
+    width: 100% ;
+}
+
+h2.shop-title {
+    font-size: 3rem;
+}
+
+.header_list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.header_item {
+    display: flex;
+    align-items: center;
+}
+
+/* 페이 글자 진하게 */
+#pay {
+    font-weight: bold;
+}
+
+/* 메인컨테이너바디 시작 */
+.main_container_body {
+    width: 100vw;
+    background-color: #f4f4f4;
+    padding: 40px 0px 120px;
+   
+}
+.pay_contents{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.pay_content_left {
+    width: 710px;
+}
+
+.pay_content_addressBox {
+    height: auto;
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+
+    border-radius: 0.5px;
+    margin-bottom: 30px;
+
+
+}
+.pay_content_addressBox_header {
+    padding: 1rem 0.9rem 1rem 3.5rem;
+    width: 100%;
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+}
+#delivery_address {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 3rem;
+    height: 2.8rem;
+}
+
+
+.pay_content_addressBox_info {
+    padding: 0px 0.9rem;
+}
+
+.pay_content_addressBox_top {
+    padding: 12px 14px 0px 0px;
+}
+
+.pay_content_addressBox_top_inner {
+    display: flex;
+    justify-content: space-between;
+    /* 주석 해제 */
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.pay_content_addressBox_top_inner_button {
+    padding: 10px 15px;
+    border: 1px solid #bdbdbd;
+    background-color: #fefefe;
+    ;
+    border-radius: 0.5rem;
+    margin-left: 450px;
+    font-weight: bold;
+
+
+}
+
+.pay_content_addressBox_phoneNum {
+    margin: 0px;
+}
+
+.deliveryMemo {
+    background-color: #f6f6f6;
+    width: 100%;
+    height: auto;
+    padding: 0.9rem;
+}
+
+.memo {
+    width: 100%;
+    height: 5.3rem;
+    padding: 9px 13px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    text-align: left;
+   
+
+}
+
+/* 주문상품 */
+.pay_content_productBox {
+    height: auto;
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+
+    border-radius: 0.5px;
+    margin-bottom: 30px;
+
+
+}
+
+.pay_content_productBox_header {
+    padding: 15px 13px 15px 13px;
+    width: 100%;
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    text-align: left;
+    font-weight: bold;
+}
+
+.pay_content_productBox_seller_inner {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding-right: 30px;
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 12px 13px 12px 3rem;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+#icon {
+    position: absolute;
+    left: 0;
+    top: 0; 
+}
+
+.pay_content_productBox_itemArea {
+    min-height: 7.5rem;
+    padding-left: 8.75rem;
+    position: relative;
+
+
+
+}
+
+.pay_content_productBox_itemImg {
+    width: 7.5rem;
+    
+    height: 7.5rem;
+    padding: 1rem 0.8rem;
+    position: absolute;
+    left: 0;
+}
+
+.pay_content_productBox_itemTitles {
+   padding: 1rem 0.8rem;
+}
+
+/* 이거 하는것을 이해하고 아이콘이나 이미지넣으면됨. */
+.pay_content_productBox_itemTitle {
+    padding-right: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+#pay_content_productBox_itemPrice{
+    font-weight: normal;
+}
+
+.pay_content_productBox_itemPrice {
+    font-weight: bold;
+    padding-left: 2rem;
+
+}
+.pay_content_right{
+    border: 1px solid black;
+   margin-left: 1.6rem;
+   height: 100%
+   
+   
+   
+
+   
+}
+.pay_content_payment{
+width: 24rem;
+background-color: #fefefe;
+float: right;
+position: sticky;
+top: 1.5rem;
+
+}
+.pay_content_payment_header{
+    padding: 1rem 0.8rem;
+    border-bottom:1px solid #333;
+    margin: 0px 1.37rem;
+    font-weight: bold;
+}
+.pay_content_payment_info_inner{
+list-style-type: none;
+display: flex;
+flex-direction: column;
+padding: 1rem 0.8rem;
+margin: 0px 1.37rem;
+border-bottom: 1px solid #333;
+}
+.pay_content_payment_info_inner li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* 원하는 간격으로 조정하세요 */
+  }
+  .item-name{
+    color: #bdbdbd;
+  }
+  .pay_content_payment_TotalPay{
+  
+  padding: 0.8rem 1rem 0px 1rem;
+  margin: 0px 1.37rem;
+  }
+  .pay_content_payment_TotalPay_inner{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin-bottom: 0px;
+ 
+  }
+  .pay_content_payment_agreement{
+    font-weight: bold;
+    display: flex;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .pay_content_payment_btn{
+    padding: 1.4rem 0px;
+    margin: 0px 1.37rem;
+    display: flex;
+    justify-content: center;
+  }
+  .payment_btn{
+    width: 100%;
+    height: 4rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-green);
+    
+  }
+  #openModal{
+    font-weight: bold;
+    color: var(--color-white );
+  }
+  .modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 화면에 고정 */
+    z-index: 1; /* 모든 것 위에 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 전체 너비 */
+    height: 100%; /* 전체 높이 */
+    overflow: auto; /* 스크롤 가능하게 */
+    background-color: rgb(0,0,0); /* 뒷배경 색 */
+    background-color: rgba(0,0,0,0.4); /* 약간의 투명도 */
+}
+
+/* 모달 내용 스타일 */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 페이지 중앙에 위치 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 대부분의 화면 차지 */
+}
+
+/* 닫기 버튼 */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

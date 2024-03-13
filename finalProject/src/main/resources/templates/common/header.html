@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="headerContent">
+
+<head>
+  <!-- css 관련 -->
+  <link href=/css/header.css rel="stylesheet">
+  <!-- 외부 css -->
+  
+
+  <!--트위터 카드(Twitter Cards)-->
+
+
+  <!--탭 아이콘 연결 파비곤 연결-->
+  <link rel="icon" href="./favicon.png" />
+  <!--reset 라이브러리 연결 -->
+
+  <!--구글 아이콘 연결-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+
+  <!--구글폰트의 나눔고딕폰트-->
+
+
+ 
+  <script defer src="./js/header.js"></script>
+</head>
+
+
+  <header>
+    <!--header 영역의 시작-->
+
+    <!-- inner의 시작-->
+    <div class="inner">
+      <a href="/" class="logo"> <img src="./images/yukpul.logo2.png" />
+      </a>
+
+      <!-- 서브메뉴-->
+      <div class="sub-menu">
+        <ul class="menu">
+          <!--회원가입-->
+          <li><a href="/sigin">Sign In</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="#">MyPage</a></li>
+          <li><a href="#">Cart</a></li>
+        </ul>
+        <div class="search">
+          <input type="text"> <span class="material-icons">
+            search </span>
+        </div>
+
+      </div>
+      <!--서브메뉴 끝-->
+
+      <!--상단 메뉴-->
+      <ul class="main-menu">
+        <li class="item">
+          <div class="item__name">전체카테고리</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <!--일반의약품을 감싸고 있는 부모요소 li-->
+                <li>
+                  <h4>약품정보</h4>
+                  <ul>
+                    <li><a href="/info_List">전체</a></li>
+                    <li>카테고리1</li>
+                    <li>카테고리2</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>약품 구매</h4>
+                  <ul>
+                    <li><a href="/sel-List">전체 약품 목록</a></li>
+                    <li>카테고리1</li>
+                    <li>카테고리2</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>나의 약품</h4>
+                  <ul>
+                    <li>복용약</li>
+                    <li><a href="/payAndmarket/history">구매내역</a></li>
+                    <li><a href="/payAndmarket/return">교환/환불 내역</a></li>
+                    <li>의약품오마카세</li>
+                    <li>의약품오마카세</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>기타</h4>
+                  <ul>
+                    <li><a href="/map">약국 찾기</a></li>
+                    <li><a href="/board/Notice_board">공지사항</a></li>
+                    <li><a href="/board/FAQ">FAQ</a></li>
+                    <li><a href="/board/OneonOne_board">1:1문의</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- 호버 메뉴바  끝 -->
+        </li>
+        <li class="item">
+          <div class="item__name">의약 정보</div>
+          <div class="item__contents">
+            <div class="contents__menu">의약 정보</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">약품 구매</div>
+          <div class="item__contents">
+            <div class="contents__menu">사이트 약품 구매</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">게시판</div>
+          <div class="item__contents">
+            <div class="contents__menu">FAQ</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- inner 메뉴 끝 -->
+
+
+  </header>
+  <!--header 영역의 끝-->
+
+
+
+</th:block>
+
+</html>

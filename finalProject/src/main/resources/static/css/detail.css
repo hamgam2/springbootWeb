@@ -1,0 +1,115 @@
+:root {
+
+
+    --color-primary: #D5ECF2;
+    --color-nav: #F4F5EF;
+    --color-notice: #1B1B31;
+    --color-warning: #95C8D4;
+    --color-white: #FCFEFE;
+    --color-sub-blue: #0577BD;
+    --color-green: #2BA69A;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.detail {
+    display: block;
+    width: 1400px;
+    border-radius: 10px;
+}
+
+.container {
+    margin-top: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    border: 0px solid #f3fbfd;
+    background-color: #f3fbfd;
+    box-shadow: 3px 10px 30px #D5ECF2;
+    border-radius: 10px;
+
+
+}
+
+/*알약 세부정보*/
+.img-detail {
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    margin: 30px;
+}
+
+.custom-table {
+    display: table;
+    text-align: center;
+    width: 800px;
+    height: 400px;
+}
+
+
+/*버튼 텍스트창*/
+.container2 {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+
+}
+
+.btn-group-vertical {
+    /*-border:3px solid #95C8D4 !important;*/
+    background-color: #95C8D4;
+    border-radius: 10px !important;
+    box-shadow: 3px 10px 30px #D5ECF2;
+}
+
+.btn-group-vertical:hover {
+    border-radius: 10px !important;
+}
+
+.btn {
+    height: 80px !important;
+    width: 100px !important;
+    color: #FCFEFE !important;
+    border-bottom: 1px solid #F4F5EF !important;
+}
+
+.btn:last-child {
+    border-bottom: none !important;
+    /* 마지막 버튼의 border-bottom을 제거 */
+}
+
+.btn:hover {
+    background-color: #D5ECF2 !important;
+    border: 1px solid #D5ECF2 !important;
+    color: #1B1B31 !important;
+    border-radius: 5px;
+
+}
+
+#textContainer {
+    margin-left: 80px;
+    min-height: min-content;
+    max-height: max-content;
+    background-color: #F4F5EF;
+    border-radius: 10px;
+    padding: 100px;
+    flex: 1;
+    width: 800px;
+    box-shadow: 3px 10px 30px #F4F5EF;
+
+}
+
+.fadeEffect {
+    text-align: center;
+    color: #2BA69A;
+}
